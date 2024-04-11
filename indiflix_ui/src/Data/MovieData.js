@@ -1,0 +1,253 @@
+import p1_img from "./ArmyOfDead.jpg";
+import p1a_img from "./ArmyOfDeadImage.jpg";
+import p2_img from "./Dune.jpeg";
+import p2a_img from "./DuneImage.jpg";
+import p3_img from "./LordsOfTheRing.jpg";
+import p3a_img from "./LordOfTheRingImage.jpg";
+import p4_img from "./Inception.jpg";
+import p4a_img from "./InceptionImage.jpg";
+import p5_img from "./DontLookUp.jpg";
+import p5a_img from "./DontLookUpImage.jpg";
+import p6_img from "./MatrixRevolution.jpg";
+import p6a_img from "./MatrixRevolutionImage.jpg";
+import p7_img from "./TopGunMaverick.jpg";
+import p7a_img from "./TopGunMaverickImage.jpg";
+import p8_img from "./Interstellar.png";
+import p8a_img from "./InterstellarImage.jpg";
+import video1 from "./DuneVideo.mp4";
+export const UsersData = [
+  {
+    image: p1_img,
+    fullName: "Chris Evans",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor eros, efficitur non dictum a, varius nec sem.",
+    rate: 3.4,
+    email: "test@gmail.com",
+  },
+  {
+    image: p1_img,
+    fullName: "Chris Evans",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor eros, efficitur non dictum a, varius nec sem.",
+    rate: 4,
+    email: "test@gmail.com",
+  },
+  {
+    image: p1_img,
+    fullName: "Chris Evans",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor eros, efficitur non dictum a, varius nec sem.",
+    rate: 2,
+    email: "test@gmail.com",
+  },
+  {
+    image: p1_img,
+    fullName: "Chris Evans",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor eros, efficitur non dictum a, varius nec sem.",
+    rate: 4.5,
+    email: "test@gmail.com",
+  },
+  {
+    image: p1_img,
+    fullName: "Chris Evans",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor eros, efficitur non dictum a, varius nec sem.",
+    rate: 3.8,
+    email: "test@gmail.com",
+  },
+  {
+    image: p1_img,
+    fullName: "Chris Evans",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor eros, efficitur non dictum a, varius nec sem.",
+    rate: 2.9,
+    email: "test@gmail.com",
+  },
+];
+export const Movies = [
+  {
+    name: "Army Of Dead",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p1_img,
+    image: p1a_img,
+    category: "Action",
+    language: "English",
+    year: "2021",
+    time: "2h 28m",
+    video: "",
+    rate: 3.0,
+    reviews: "186K",
+  },
+
+  {
+    name: "Lord Of The Rings",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p3_img,
+    image: p3a_img,
+    category: "Fantasy",
+    language: "English",
+    year: "2001",
+    time: "2h 58m",
+    video: "",
+    rate: 4,
+    reviews: "1.9M",
+  },
+  {
+    name: "Inception",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p4_img,
+    image: p4a_img,
+    category: "Sci-fi",
+    language: "English",
+    year: "2010",
+    time: "2h 28m",
+    video: "",
+    rate: 4.4,
+    reviews: "2.5M",
+  },
+  {
+    name: "Don't look up",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p5_img,
+    image: p5a_img,
+    category: "Comedy",
+    language: "English",
+    year: "2021",
+    time: "2h 25m",
+    video: "",
+    rate: 3.6,
+    reviews: "593K",
+  },
+  {
+    name: "The Matrix Revolutions",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p6_img,
+    image: p6a_img,
+    category: "Sci-fi",
+    language: "English",
+    year: "2003",
+    time: "2h 9m",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Top Gun Maverick",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p7_img,
+    image: p7a_img,
+    category: "Action",
+    language: "English",
+    year: "2022",
+    time: "2h 13m",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Interstellar",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p8_img,
+    image: p8a_img,
+    category: "Sci-fi",
+    language: "English",
+    year: "2014",
+    time: "2h 49m",
+    video: "",
+    rate: 3.7,
+    reviews: 23,
+  },
+  {
+    name: "Top Gun Maverick",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p7_img,
+    image: p7a_img,
+    category: "Action",
+    language: "English",
+    year: "2022",
+    time: "2h 13m",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Inception",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p4_img,
+    image: p4a_img,
+    category: "Western",
+    language: "English",
+    year: "2022",
+    time: "3hr",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Lord of the rings",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p3_img,
+    image: p3a_img,
+    category: "Western",
+    language: "English",
+    year: "2022",
+    time: "3hr",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Don't look up",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p5_img,
+    image: p5a_img,
+    category: "Western",
+    language: "English",
+    year: "2022",
+    time: "3hr",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Army Of Dead",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p1_img,
+    image: p1a_img,
+    category: "Action",
+    language: "English",
+    year: "2021",
+    time: "2h 28m",
+    video: "",
+    rate: 3.0,
+    reviews: "186K",
+  },
+
+  {
+    name: "Lord of the rings",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p3_img,
+    image: p3a_img,
+    category: "Western",
+    language: "English",
+    year: "2022",
+    time: "3hr",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+  {
+    name: "Don't look up",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum sem quis sem molestie tempor.",
+    titleImage: p5_img,
+    image: p5a_img,
+    category: "Western",
+    language: "English",
+    year: "2022",
+    time: "3hr",
+    video: "",
+    rate: 3.4,
+    reviews: 23,
+  },
+];
