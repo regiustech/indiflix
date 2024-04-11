@@ -44,6 +44,7 @@ function Login() {
         if (res.success) {
           toast(res.message);
           localStorage.setItem("access-token", res.data.token);
+          localStorage.setItem("user-detail", JSON.stringify(res.data.detail));
           dispatch(loginAuth(res.data.detail));
           navigate("/");
         }
