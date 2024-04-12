@@ -72,7 +72,7 @@ function Register() {
               onChange={handleInputChange}
               type="text"
             />
-            <small className="text-[#f20000]">{formErrors.fullName}</small>
+            <small className="text-textError">{formErrors.fullName}</small>
           </div>
           <div className="w-full">
             <input
@@ -84,7 +84,7 @@ function Register() {
               onChange={handleInputChange}
               name="email"
             />
-            <small className="text-[#f20000]">{formErrors.email}</small>
+            <small className="text-textError">{formErrors.email}</small>
           </div>
           <div className="w-full">
             <input
@@ -96,7 +96,7 @@ function Register() {
               onChange={handleInputChange}
               name="password"
             />
-            <small className="text-[#f20000]">{formErrors.password}</small>
+            <small className="text-textError">{formErrors.password}</small>
           </div>
           <Link
             className="bg-subMain transitions hover:bg-main flex-rows gap-4 text-white p-4 rounded-lg w-full"

@@ -68,7 +68,7 @@ function Login() {
               onChange={handleInputChange}
               className="w-full text-sm mt-2 p-5 border border-border rounded text-white bg-main"
             />
-            <small className="text-[#f20000]">{formErrors.email}</small>
+            <small className="text-textError">{formErrors.email}</small>
           </div>
           <div className="w-full">
             <input
@@ -81,7 +81,7 @@ function Login() {
               onChange={handleInputChange}
               className="w-full text-sm mt-2 p-5 border border-border rounded text-white bg-main"
             />
-            <small className="text-[#f20000]">{formErrors.password}</small>
+            <small className="text-textError">{formErrors.password}</small>
           </div>
           <Link
             onClick={handleSignIn}

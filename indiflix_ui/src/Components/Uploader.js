@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone"; //using the hook
 import { FiUploadCloud } from "react-icons/fi";
-function Uploader() {
-  const { getRootProps, getInputProps } = useDropzone({
-    multiple: false,
-    maxSize: 100000,
-    onDrop: (acceptedFiles) => {
-      alert(acceptedFiles[0].name);
-    },
+import { toast } from "react-toastify";
+
+function Uploader(props) {
+  const { onUpload } = props;
+  const [fileData, setFileData] = useState(null);
+
+  const onDrop = useCallback(acceptedFiles => {
+    acceptedFiles.forEach((file) => {
+      const { name, type, size } = file;
+      const reader = new FileReader()
+
+      reader.onabort = () => toast.error('file reading was aborted')
+      reader.onerror = () => toast.error('file reading has failed')
+      reader.onload = () => {
+        // Do whatever you want with the file contents
+        const binaryStr = reader.result
+        setFileData({ name, content: binaryStr, type, size });
+      }
+      reader.readAsArrayBuffer(file)
+    })
+  }, []);
+
+  const { getRootProps, getInputProps, isDragAccept } = useDropzone({
+    maxFiles: 1,
+    maxSize: 10 * 1024 * 1024, // 10MB
+    onDrop,
+    onDropRejected: () => toast.error("Not uploaded.\n please upload one valid file of max size 10MB"),
   });
+
   return (
     <div className="w-full text-center">
       <div
@@ -20,9 +41,11 @@ function Uploader() {
           <FiUploadCloud />
         </span>
         <p className="text-sm mt-2">Drag your image here</p>
-        <em className="text-xs text-border">
-          (only .jpg and .png files will be accepted)
-        </em>
+        {fileData?.name ?
+          <span className="text-[#00ff00]">{fileData.name}</span>
+          : <em className="text-xs text-border">
+            (only .jpg and .png files will be accepted)
+          </em>}
       </div>
     </div>
   );

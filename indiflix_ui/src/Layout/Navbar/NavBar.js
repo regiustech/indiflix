@@ -1,11 +1,47 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch, FaHeart } from "react-icons/fa";
-import { CgUser } from "react-icons/cg";
+import { CgUser, CgProfile } from "react-icons/cg";
+import { MdOutlineLogout } from "react-icons/md";
 import logo from "../../assets/logo2.png";
+import Popover from '@mui/material/Popover';
+import { useSelector } from 'react-redux';
+import AlertDialog from "../../Components/Dialogs/AlertDialog";
+
+
 function NavBar() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [alertModal, setAlertModal] = useState(null);
   const hover = "hover:text-subMain transitions text-white";
   const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
+  const { userDetail } = useSelector(store => store.Auth);
+  const navigate = useNavigate();
+
+  const handleUserLogoClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogoutClick = () => {
+    handleClose();
+    setAlertModal({
+      title: "Logout",
+      message: "Do you really want to logout?"
+    });
+  }
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  }
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  }
+
   return (
     <>
       <div className="bg-main shadow-md sticky top-0 z-20">
@@ -48,7 +84,7 @@ function NavBar() {
             <NavLink to="/contact-us" className={Hover}>
               Contact Us
             </NavLink>
-            <NavLink to="/login" className={Hover}>
+            <NavLink className={Hover} onClick={handleUserLogoClick}>
               <CgUser className="w-8 h-8" />
             </NavLink>
             <NavLink to="/favorite" className={`${Hover} relative`}>
@@ -60,6 +96,41 @@ function NavBar() {
           </div>
         </div>
       </div>
+      <Popover
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          horizontal: 'right'
+        }}
+      >
+        <div className="px-5 py-2">
+          <div className="flex justify-center">
+            <img
+              className="w-8 h-8 rounded-full"
+              src="https://beforeigosolutions.com/wp-content/uploads/2021/12/dummy-profile-pic-300x300-1.png"
+              alt="" />
+          </div>
+          <div className="flex justify-center mt-2">
+            <small className="text-slate-500">{userDetail.email}</small>
+          </div>
+          <div className="flex flex-col justify-start mt-3 gap-2">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={handleProfileClick}>
+              <CgProfile />
+              <span>Profile</span>
+            </div>
+            <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogoutClick}>
+              <MdOutlineLogout />
+              <span>Logout</span>
+            </div>
+          </div>
+        </div>
+      </Popover>
+      {alertModal && <AlertDialog {...alertModal} handleClose={()=> setAlertModal(null)} handleOk={handleLogout}/>}
     </>
   );
 }
