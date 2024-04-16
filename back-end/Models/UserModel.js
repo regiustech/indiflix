@@ -27,12 +27,23 @@ const UserSchema = mongoose.Schema(
             type: Boolean,
             default: true,
         },
+        isRegistered: {
+            type: Boolean,
+            default: false,
+        },
         likedMovies: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Movies",
             }
-        ]
+        ],
+        mobileNumber: {type: String},
+        address: {type: String},
+        productionHouseName: { type: String },
+        productionHouseDocument: { type: String },
+        note: { type: String },
+        adhaarNumber: { type: String },
+        panNumber: { type: String },
     },
     {
         timeStamps: true,

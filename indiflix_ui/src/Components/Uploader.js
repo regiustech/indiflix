@@ -9,21 +9,12 @@ function Uploader(props) {
 
   const onDrop = useCallback(acceptedFiles => {
     acceptedFiles.forEach((file) => {
-      const { name, type, size } = file;
-      const reader = new FileReader()
-
-      reader.onabort = () => toast.error('file reading was aborted')
-      reader.onerror = () => toast.error('file reading has failed')
-      reader.onload = () => {
-        // Do whatever you want with the file contents
-        const binaryStr = reader.result
-        setFileData({ name, content: binaryStr, type, size });
-      }
-      reader.readAsArrayBuffer(file)
+      setFileData(file);
+      onUpload(file);
     })
   }, []);
 
-  const { getRootProps, getInputProps, isDragAccept } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
     maxSize: 10 * 1024 * 1024, // 10MB
     onDrop,

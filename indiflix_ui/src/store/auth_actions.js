@@ -28,9 +28,24 @@ const registration = (payload) => async (dispatch) => {
     }
 };
 
+const updateProfile = (payload) => async (dispatch) => {
+    try {
+        const res = await AuthServices.updateProfile(payload);
+        const data = res.data;
+        toast.success(data.message);
+        dispatch(loginAuth(data.detail));
+        return { success: true };
+    }
+    catch (error) {
+        toast.error(error?.response?.data?.error || "Server error");
+        return { success: false };
+    }
+};
+
 
 
 export const AuthActions = {
     login,
-    registration
+    registration,
+    updateProfile
 };

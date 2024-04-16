@@ -26,7 +26,7 @@ function App() {
       <Routes>
         {routes.map(routeDetail => {
           if ((userDetail.role && routeDetail.roles?.includes(userDetail.role)) || !routeDetail.roles) {
-            return <Route path={routeDetail.path} element={routeDetail.element} />;
+            return <Route path={routeDetail.path} element={routeDetail.element} key={routeDetail.path}/>;
           }
         })}
       </Routes>

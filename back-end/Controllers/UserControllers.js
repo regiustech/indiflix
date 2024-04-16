@@ -219,9 +219,7 @@ export const resetPassword = async (req, res) => {
 };
 
 export const registerUser = async (req, res) => {
-  console.log(req.body, "hi");
   const { fullName, email, password, image, role } = req.body;
-  console.log({ fullName, email, password, image, role });
 
   try {
     const preuser = await UserModel.findOne({ email });
@@ -248,6 +246,27 @@ export const registerUser = async (req, res) => {
       // console.log(storedata + "user successfully added");
       res.status(201).json(storedata);
     }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const updateProfile = async (req, res) => {
+  try {
+    const {email, ...data} = req.body;
+    for (let key in req.files) {
+      if (key === "image") {
+        data.image = `http://localhost:5000/api/get-image/${req.files[key][0].filename}`;
+      }
+      if (key === "productionHouseDocument") {
+        data.productionHouseDocument = `http://localhost:5000/api/get-image/${req.files[key][0].filename}`;
+      }
+    };
+
+    const userDetail = await UserModel.findOneAndUpdate({ email }, data,  { new: true }).lean();
+    delete userDetail.password;
+
+    return res.status(200).json({ message: "successfully updated", detail: userDetail });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -282,7 +301,7 @@ export const loginUser = async (req, res) => {
     res.status(400).json({ error: "fill the details" });
   }
   try {
-    const userlogin = await UserModel.findOne({ email: email });
+    const userlogin = await UserModel.findOne({ email: email }).lean();
     const isMatch = await bcrypt.compare(
       String(password),
       String(userlogin.password)
@@ -309,12 +328,14 @@ export const loginUser = async (req, res) => {
       //   httpOnly: true
       // });
       // Send the token back to the user
-      const response = {
-        fullName: userlogin.fullName,
-        email: userlogin.email,
-        role: userlogin.role
-      }
-      res.status(201).json({ detail: response, token });
+      // const response = {
+      //   fullName: userlogin.fullName,
+      //   email: userlogin.email,
+      //   role: userlogin.role,
+      //   image: userlogin.
+      // }
+      delete userlogin.password;
+      res.status(201).json({ detail: userlogin, token });
     }
   } catch (error) {
     console.log(error.message);

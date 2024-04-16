@@ -110,10 +110,12 @@ function NavBar() {
       >
         <div className="px-5 py-2">
           <div className="flex justify-center">
-            <img
+            {userDetail.image ? <img
               className="w-8 h-8 rounded-full"
-              src="https://beforeigosolutions.com/wp-content/uploads/2021/12/dummy-profile-pic-300x300-1.png"
-              alt="" />
+              src={userDetail.image}
+              alt="" /> :
+              <span>Logo</span>
+            }
           </div>
           <div className="flex justify-center mt-2">
             <small className="text-slate-500">{userDetail.email}</small>
@@ -130,7 +132,7 @@ function NavBar() {
           </div>
         </div>
       </Popover>
-      {alertModal && <AlertDialog {...alertModal} handleClose={()=> setAlertModal(null)} handleOk={handleLogout}/>}
+      {alertModal && <AlertDialog {...alertModal} handleClose={() => setAlertModal(null)} handleOk={handleLogout} />}
     </>
   );
 }

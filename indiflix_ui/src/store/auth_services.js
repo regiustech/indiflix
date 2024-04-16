@@ -8,7 +8,16 @@ const registration = async (payload) => {
     return await INDIFLIX_SERVICE.post("/users/register", payload);
 };
 
+const updateProfile = async (payload) => {
+    return await INDIFLIX_SERVICE.put("/users/profile", payload, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        }
+    });
+};
+
 export const AuthServices = {
     login,
-    registration
+    registration,
+    updateProfile
 }
