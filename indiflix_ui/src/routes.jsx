@@ -19,12 +19,17 @@ import EnterToken from "./Screen/EnterToken";
 import ForgotPassword from "./Screen/ForgotPassword";
 import ResetPassword from "./Screen/ResetPassword";
 import AddMovie from "./Screen/Movies/AddMovie";
+import LandingPage from "./Screen/LandingPage";
 
 
 export const routes = [
+    // {
+    //     path: "/",
+    //     element: <HomeScreen />,
+    // },
     {
         path: "/",
-        element: <HomeScreen />,
+        element: <LandingPage />,
     },
     {
         path: "/about-us",
