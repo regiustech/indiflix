@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { AuthActions } from "../store/auth_actions";
+import { AuthActions } from "../store/auth/auth_actions";
 import { toast } from "react-toastify";
 
 function Register() {

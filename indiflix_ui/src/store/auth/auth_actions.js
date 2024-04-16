@@ -1,5 +1,4 @@
-import { loginAuth } from "./auth_reducers";
-import { AuthServices } from "./auth_services";
+import { AuthServices } from "../auth/auth_services";
 import { toast } from "react-toastify";
 
 const login = (payload) => async (dispatch) => {
@@ -27,6 +26,7 @@ const registration = (payload) => async (dispatch) => {
         return { success: false };
     }
 };
+
 
 
 

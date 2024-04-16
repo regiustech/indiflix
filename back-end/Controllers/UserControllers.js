@@ -8,6 +8,7 @@ import jwt from "jsonwebtoken";
 import { generateToken } from "../midddleware/Auth.js";
 import express from "express";
 import nodemailer from "nodemailer";
+import Razorpay from "razorpay";
 
 //  export const registerUser = asyncHandler(async(req,res)=>{
 //     console.log(req.body);
@@ -383,4 +384,29 @@ export const getUsers = asyncHandler(async (req, res) => {
   } catch (error) {
     res.status(400).json("message:error.message");
   }
+});
+
+export const makePayment = asyncHandler(async (req, res) => {
+  try{
+    const razorpay = Razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_KEY_SECRET
+    });
+
+    if(!req.body){
+        return res.status(400).send("Bad request")
+    }
+
+    const options = req.body;
+
+    const order = await razorpay.orders.create(options);
+
+    if(!order){
+        return res.status(400).send("Bad request")
+    }
+    res.json(order);
+}
+catch(error){
+    console.log(error)
+}
 });

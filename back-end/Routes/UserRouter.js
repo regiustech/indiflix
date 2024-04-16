@@ -9,6 +9,7 @@ import {
   registerUser,
   verifyToken,
   resetPassword,
+  makePayment
 } from "../Controllers/UserControllers.js";
 import { admin } from "../midddleware/Auth.js";
 
@@ -22,6 +23,7 @@ router.post("/resetpassword", resetPassword);
 router.put("/password", changeUserPassword);
 router.get("/favorites", getLikedMovies);
 router.post("/favorites", addLikedMovie);
+router.post("/payment", makePayment);
 router.get("/", admin, getUsers);
 
 export default router;
