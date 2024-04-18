@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { FiLogIn } from "react-icons/fi";
 import React, { useState } from "react";
-import { AuthActions } from "../store/auth_actions";
+import { AuthActions } from "../store/auth/auth_actions";
 import logo from "../assets/logo2.png";
 import Layout from "../Layout/Layout";
-import { loginAuth } from "../store/auth_reducers";
+import { loginAuth } from "../store/auth/auth_reducers";
 
 function Login() {
   const [formValues, setFormValues] = useState({ email: "", password: "" });

@@ -1,4 +1,4 @@
-import { INDIFLIX_SERVICE } from '../api';
+import { INDIFLIX_SERVICE } from '../../api';
 
 const login = async (payload) => {
     return await INDIFLIX_SERVICE.post("/users/login", payload);
@@ -16,8 +16,13 @@ const updateProfile = async (payload) => {
     });
 };
 
+const payment = async (payload) => {
+    return await INDIFLIX_SERVICE.post("/users/payment", payload);
+};
+
 export const AuthServices = {
     login,
     registration,
-    updateProfile
+    updateProfile,
+    payment
 }

@@ -10,6 +10,9 @@ import bodyparser from 'body-parser';
 import multer from 'multer';
 import { updateProfile } from "./Controllers/UserControllers.js";
 import path from "path";
+import crypto from "crypto";
+import Razorpay from "razorpay";
+//import bodyParser from "body-parser";
 
 dotenv.config();
 
@@ -50,6 +53,30 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 6000;
 
-app.listen(PORT, () => {
+// app.post("/users/payment", async(req, res) => {
+//     try{
+//         const razorpay = Razorpay({
+//             key_id: process.env.RAZORPAY_KEY_ID,
+//             key_secret: process.env.RAZORPAY_KEY_SECRET
+//         });
+
+//         if(!req.body){
+//             return res.status(400).send("Bad request")
+//         }
+
+//         const options = req.body;
+
+//         const order = await razorpay.orders.create(options);
+
+//         if(!order){
+//             return res.status(400).send("Bad request")
+//         }
+//         res.json(order);
+//     }
+//     catch(error){
+//         console.log(error)
+//     }
+// })
+app.listen(PORT,()=>{
     console.log(`Server is running in http://localhost/${PORT}`);
 });
