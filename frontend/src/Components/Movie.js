@@ -1,6 +1,8 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import p2a_img from "../Data/DuneImage.jpg";
+
 function Movie({ movie }) {
   return (
     <>
@@ -9,7 +11,7 @@ function Movie({ movie }) {
         {/* <Link to={`/movie/${movie?._id}`} className="w-full"> */}
 
           <img
-            src={`${movie?.videoposter}`}
+            src={p2a_img}
             alt={movie?.name}
             className="w-full h-64 object-cover"
           />
