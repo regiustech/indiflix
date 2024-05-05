@@ -29,7 +29,7 @@ function WatchPage() {
             <div className="container mx-auto w-full flex flex-col mb-12">
                 <VideoPlayer
                     src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-                    className="custVPlayer"
+                    className="custVPlayer w-full"
                     controls={true}
                     autoplay={false}
                     height="600"
