@@ -257,10 +257,10 @@ export const updateProfile = async (req, res) => {
     const {email, ...data} = req.body;
     for (let key in req.files) {
       if (key === "image") {
-        data.image = `http://localhost:9000/api/get-image/${req.files[key][0].filename}`;
+        data.image = `${process.env.FRONT_URL}/api/get-image/${req.files[key][0].filename}`;
       }
       if (key === "productionHouseDocument") {
-        data.productionHouseDocument = `http://localhost:9000/api/get-image/${req.files[key][0].filename}`;
+        data.productionHouseDocument = `${process.env.FRONT_URL}/api/get-image/${req.files[key][0].filename}`;
       }
     };
 
