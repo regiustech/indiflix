@@ -7,7 +7,7 @@ import axios from "axios";
 function PopularMovies(){
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-    axios.get(`http://localhost:9000/api/movies/random/all`).then((res )=>setMydata(res.data))
+    axios.get(`${process.env.REACT_APP_API_URL}/api/movies/random/all`).then((res )=>setMydata(res.data))
   },[]);
 
 

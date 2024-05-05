@@ -19,7 +19,7 @@ function TopRated() {
 
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-   axios.get(`http://localhost:9000/api/movies/rated/top`).then((res )=>setMydata(res.data))
+   axios.get(`${process.env.REACT_APP_API_URL}/api/movies/rated/top`).then((res )=>setMydata(res.data))
 },[]);
 
 

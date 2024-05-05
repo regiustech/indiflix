@@ -77,7 +77,7 @@ function MovieRates({ movie }) {
       //console.log(employee); 
 
 
-      axios.post(`http://localhost:9000/api/review`,employee).then((Response)=>{})
+      axios.post(`${process.env.REACT_APP_API_URL}/api/review`,employee).then((Response)=>{})
      //const navigate = useNavigate();
       
 
@@ -88,7 +88,7 @@ function MovieRates({ movie }) {
 
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-   axios.get(`http://localhost:9000/api/review/${id}`).then((res )=>setMydata(res.data))
+   axios.get(`${process.env.REACT_APP_API_URL}/api/review/${id}`).then((res )=>setMydata(res.data))
   },[]);
 
 

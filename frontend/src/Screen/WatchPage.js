@@ -12,7 +12,7 @@ function WatchPage() {
   
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-   axios.get(`http://localhost:9000/api/movies/${id}`)
+   axios.get(`${process.env.REACT_APP_API_URL}/api/movies/${id}`)
    .then((res )=>setMydata(res.data))
 
   },[]);

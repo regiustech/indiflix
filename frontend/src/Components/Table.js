@@ -13,7 +13,7 @@ const deleteHandlar=(id,e)=>{
   if (shouldRemove) {
   
       axios
-          .delete(`http://localhost:9000/api/movies/movie/${id}`)
+          .delete(`${process.env.REACT_APP_API_URL}/api/movies/movie/${id}`)
           .then((Response)=>
         {  //console.log(Response); 
           window.location.reload();

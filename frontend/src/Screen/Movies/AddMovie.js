@@ -123,8 +123,7 @@ const AddMovie = () => {
               "Access-Control-Allow-Origin": "*",
           }
         };
-        axios.post(`http://localhost:9000/api/movies/movie`,inputData,axiosConfig )
-        .then((Response )=>{
+        axios.post(`${process.env.REACT_APP_API_URL}/api/movies/movie`,inputData,axiosConfig).then((Response )=>{
           navigate("/movieslist");
         })
     }
