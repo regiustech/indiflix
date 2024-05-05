@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.png";
 function Footer() {
+  
+  const handleClick = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
   const Links = [
     {
       title: "Company",
@@ -83,7 +87,8 @@ function Footer() {
                 <ul className="text-sm flex flex-col space-y-3">
                   {link.links.map((text, index) => (
                     <li key={index} className="flex items-baseline">
-                      <Link
+                      <Link 
+                        onClick={handleClick}
                         to={text.link}
                         className="text-border inline-block w-full hover:text-subMain"
                       >

@@ -66,7 +66,7 @@ function Register() {
             <input
               className={`w-full text-sm mt-2 p-5 border border-border rounded text-black `}
               label="Full Name"
-              placeholder="your name"
+              placeholder="Enter your name"
               name="fullName"
               value={formValues.fullName}
               onChange={handleInputChange}
@@ -78,7 +78,7 @@ function Register() {
             <input
               className={`w-full text-sm mt-2 p-5 border border-border rounded text-black `}
               label="Email"
-              placeholder="netflix@gmail.com"
+              placeholder="Enter your email"
               type="email"
               value={formValues.email}
               onChange={handleInputChange}
@@ -90,7 +90,7 @@ function Register() {
             <input
               className={`w-full text-sm mt-2 p-5 border border-border rounded text-black `}
               label="Password"
-              placeholder="*"
+              placeholder="Enter password"
               type="password"
               value={formValues.password}
               onChange={handleInputChange}

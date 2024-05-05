@@ -19,7 +19,7 @@ function MoviesList() {
   const [myData,setMydata]= useState([]);
    useEffect(()=>{
     
-    axios.get('http://localhost:5000/api/movies/random/all' )
+    axios.get(`http://localhost:9000/api/movies/random/all`)
     .then((res )=>setMydata(res.data))
 
 

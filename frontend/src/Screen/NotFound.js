@@ -16,8 +16,9 @@ function NotFound() {
           The page you are looking for does not exist. You may have mistyped the
           URL
         </p>
-        <Link className="bg-subMain transitions text-white flex-rows gap-4 font-medium py-3 hover:text-main px-6 rounded-md">
+        <Link to="/movies" className="bg-subMain transitions text-white flex-rows gap-4 font-medium py-3 hover:text-main px-6 rounded-md">
           <BiHomeAlt />
+          
           Back Home
         </Link>
       </div>

@@ -27,7 +27,7 @@ app.use("/api/movies",moviesRouter);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT,()=>{
     console.log(`Server is running in http://localhost/${PORT}`);

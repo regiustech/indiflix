@@ -13,6 +13,19 @@ import axios from "axios";
 
 const AddMovie = () => {
   const navigate = useNavigate();
+  const Language = [
+    {title: "<---Select Language--->"},
+    {title: "Hindi"},
+    {title: "English"},
+    {title: "Telugu"},
+    {title: "Tamil"},
+    {title: "Malayalam"},
+    {title: "Kannada"},
+    {title: "Marathi"},
+    {title: "Punjabi"},
+    {title: "Gujarati"},
+    {title: "Bangali"}
+  ];
   const Genre = [
     { title: "<---Select Genre--->" },
     { title: "Action & Adventure" },
@@ -39,6 +52,7 @@ const AddMovie = () => {
     { title: "TV Shows" },
   ];
   const [genre, setGenre] = useState(Genre[0]);
+  const [language, setLanguage] = useState(Language[0]);
 
   const contentType = [
     "Trailer",
@@ -62,7 +76,8 @@ const AddMovie = () => {
   const boardType = ["Yes", "No"];
   const buyMoviePermission = ["Yes", "No"];
 
-  const Filter = [{ value: genre, onChange: setGenre, items: Genre }];
+  const GenreFilter = [{ value: genre, onChange: setGenre, items: Genre }];
+  const LanguageFilter = [{ value: language, onChange: setLanguage, items: Language }];
 
   const selectLangaugeHandler = () => {
     alert("We highly recommend to extend reachability");
@@ -108,24 +123,11 @@ const AddMovie = () => {
               "Access-Control-Allow-Origin": "*",
           }
         };
-
-
-        axios.post('http://localhost:5000/api/movies/movie',inputData,axiosConfig )
+        axios.post(`http://localhost:9000/api/movies/movie`,inputData,axiosConfig )
         .then((Response )=>{
-
-          //console.log(Response);
-          
-          navigate("/movieslist");  
-
-          //this.props.history.replace('/movieslist');
-         
+          navigate("/movieslist");
         })
-       //const navigate = useNavigate();
-        
-
     }
-
-
   return (
     <div>
       <SideBar>
@@ -152,32 +154,23 @@ const AddMovie = () => {
               </div>
             ))}
           </div>
-
-
           <div className="flex">
-          
           <input
             className="w-full text-sm mt-2 p-5 border border-border rounded text-white bg-main"
             type="Hidden"
             name="userId"
             value="66091b537d3ff707764047b8"
-           
-           
-
           />
-
-
-
-          </div>   
+         </div>   
  
 
-          <label>Movie Name</label>
+          <label>Name</label>
           <div className="flex">
           
           <input
             className="w-full text-sm mt-2 p-5 border border-border rounded text-white bg-main"
             label="text"
-            placeholder="Movie Name"
+            placeholder="Enter Name"
             type="text"
             name="name"
             value={inputData.name}
@@ -248,7 +241,7 @@ const AddMovie = () => {
           </div>
 
           <label className="mt-4">3. Please select Genre</label>
-          {Filter.map((item, index) => (
+          {GenreFilter.map((item, index) => (
             <Listbox key={index} value={item.value} onChange={item.onChange}>
               <div className="relative">
                 <Listbox.Button className="relative border border-gray-100 w-full text-white bg-main rounded-lg cursor-default py-4 pl-6 pr-10 text-left text-xs ">
@@ -301,25 +294,57 @@ const AddMovie = () => {
 
           <label className="mt-4">4. Please select the Langauge</label>
           <div className="flex">
-            {langaugeType.map((item, index) => {
-              return (
-                <div>
-                  <input
-                    type="radio"
-                    id={item}
-                    name="language"
-                    value={item}
-                    onChange={handleData}
-                    checked={inputData.language === item} 
-                  />
-                  <label htmlFor="yes" className="ms-3 me-5">
-                    {item}
-                  </label>
-                </div>
-              );
-            })}
           </div>
-
+          {LanguageFilter.map((item, index) => (
+            <Listbox key={index} value={item.value} onChange={item.onChange}>
+              <div className="relative">
+                <Listbox.Button className="relative border border-gray-100 w-full text-white bg-main rounded-lg cursor-default py-4 pl-6 pr-10 text-left text-xs ">
+                  <span className="block truncate">{item.value.title}</span>
+                  <span className="absolute inset-y-0 right-0 flex items-center pointer-events-none pr-2">
+                    <FaAngleDown className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                </Listbox.Button>
+                <Transition
+                  as={Fragment}
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Listbox.Options className="absolute z-10 mt-1 w-full bg-white border border-gray-800 text-dryGray rounded-md shadow-lg max-h-60 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                    {item.items.map((iterm, i) => (
+                      <Listbox.Option
+                        key={i}
+                        className={({ active }) =>
+                          `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? "bg-subMain text-white" : "text-main"}`
+                        }
+                        value={iterm}
+                      >
+                        {({ selected }) => (
+                          <>
+                            <span
+                              className={`block truncated ${
+                                selected ? "font-semibold" : "font-normal"
+                              }`}
+                            >
+                              {iterm.title}
+                            </span>
+                            {selected ? (
+                              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <FaCheck
+                                  className="h-3 w-3"
+                                  aria-hidden="true"
+                                />
+                              </span>
+                            ) : null}
+                          </>
+                        )}
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Transition>
+              </div>
+            </Listbox>
+          ))}
           <label className="mt-4">5. Is this certified by any board?</label>
           <div className="flex">
             {boardType.map((item, index) => {
@@ -470,7 +495,9 @@ const AddMovie = () => {
            
             onChange={handleData}
           />
-          </div>                 
+          </div>  
+          <span className="text-sm text-red-900 font-bold">Max width 1280 × 720</span>               
+          <span className="text-sm text-red-900 font-bold">File formats allowed: JPEG, JPG, PNG</span>               
 
           
 

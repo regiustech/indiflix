@@ -58,7 +58,7 @@ app.use('/certificationfiles',express.static(process.env.BASE_PATH +'assets/movi
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 9000;
 
 // app.post("/users/payment", async(req, res) => {
 //     try{

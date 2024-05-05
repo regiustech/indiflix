@@ -117,9 +117,9 @@ function Profile() {
           </div>
 
           <div className="text-sm w-full">
-            <label className="text-border font-semibold">Adhaar Card Number</label>
+            <label className="text-border font-semibold">Adhaar Number</label>
             <input
-              placeholder="Adhaar card number"
+              placeholder="Adhaar number"
               className={`${inputClassName} bg-main`}
               {...register("adhaarNumber", { pattern: { value: /^[0-9]{12}$/, message: "Please enter valid adhaar card number" } })}
             />
@@ -127,9 +127,9 @@ function Profile() {
           </div>
 
           <div className="text-sm w-full">
-            <label className="text-border font-semibold">PAN Card Number</label>
+            <label className="text-border font-semibold">PAN Number</label>
             <input
-              placeholder="PAN card number"
+              placeholder="PAN number"
               className={`${inputClassName} bg-main`}
               {...register("panNumber", { pattern: { value: /^[0-9a-zA-Z]{10}$/, message: "Please enter valid 10 digit pan card number" } })}
             />

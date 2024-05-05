@@ -1,9 +1,5 @@
 import axios from 'axios';
-
-export const INDIFLIX_SERVICE = axios.create({
-    baseURL: "http://localhost:5000/api/",
-});
-
+export const INDIFLIX_SERVICE = axios.create({baseURL: `http://localhost:9000/api/`});
 INDIFLIX_SERVICE.interceptors.request.use((config) => {
     return {
         ...config,

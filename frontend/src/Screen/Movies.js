@@ -24,7 +24,7 @@ function MoviesPage() {
             <Movie key={index} movie={movie} />
           ))}
         </div>
-        {/* Loading More */}
+        {/* Loading More
         <div className="w-full flex-colo md:my-20 my-10">
           <button
             onClick={HandleLoadingMore}
@@ -32,7 +32,7 @@ function MoviesPage() {
           >
             Loading More <CgSpinner className="animate-spin" />
           </button>
-        </div>
+        </div> */}
       </div>
     </Layout>
   );

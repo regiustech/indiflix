@@ -21,7 +21,7 @@ function ForgotPassword() {
       email: userDetails.email,
     };
     const response = await axios.post(
-      "http://localhost:5000/api/users/forgotpassword",
+      `http://localhost:9000/api/users/forgotpassword`,
       body
     );
     console.log(response);

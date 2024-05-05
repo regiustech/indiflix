@@ -77,12 +77,7 @@ function MovieRates({ movie }) {
       //console.log(employee); 
 
 
-      axios.post('http://localhost:5000/api/review', employee )
-      .then((Response )=>{
-
-     
-       
-      })
+      axios.post(`http://localhost:9000/api/review`,employee).then((Response)=>{})
      //const navigate = useNavigate();
       
 
@@ -93,10 +88,8 @@ function MovieRates({ movie }) {
 
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-    //alert(movie._id);
-   axios.get('http://localhost:5000/api/review/'+id )
-   .then((res )=>setMydata(res.data))
-},[]);
+   axios.get(`http://localhost:9000/api/review/${id}`).then((res )=>setMydata(res.data))
+  },[]);
 
 
 
@@ -158,13 +151,13 @@ function MovieRates({ movie }) {
             {/* Message */}
           
               
-          <input
+          {/* <input
             className="w-full text-sm mt-2 p-5 border border-border rounded text-white bg-main"
             type="text"
             name="movie_id"
             value={movie?._id}
            
-          />
+          /> */}
 
 
 

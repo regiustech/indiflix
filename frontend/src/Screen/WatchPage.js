@@ -1,22 +1,22 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect, useRef } from "react";
 import Layout from "../Layout/Layout";
 import { Link, useParams } from "react-router-dom";
 import { Movies } from "../Data/MovieData";
 import { BiArrowBack } from "react-icons/bi";
 import { FaCloudDownloadAlt, FaHeart, FaPlay } from "react-icons/fa";
+import VideoPlayer from 'react-video-js-player';
+
 import axios from "axios";
 function WatchPage() {
   let { id } = useParams();
   
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-   axios.get('http://localhost:5000/api/movies/'+id)
+   axios.get(`http://localhost:9000/api/movies/${id}`)
    .then((res )=>setMydata(res.data))
 
   },[]);
-
-
-
+  const [showVideo, setShowVideo] = useState(true);
 
   //const movie = Movies.find((movie) => movie.name === id);
   const [play, setPlay] = useState(false);
@@ -43,7 +43,7 @@ function WatchPage() {
         </div>
       </div>
       {/* watch video */}
-      {play ? (
+      {/* {play ? (
         <video controls autoPlay={play} className="w-full h-full rounded">
           <source src={myData?.videofile} type="video/mp4" title={myData?.name} />
         </video>
@@ -63,7 +63,27 @@ function WatchPage() {
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
-      )}
+      )} */}
+   
+{/*        
+      <div id="incorrect-id">
+        <VideoPlayer
+        src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+        poster="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.jpg" // Actual poster URL
+          id="my-video-player"
+          controls={true}
+          autoplay={false}
+        />
+        
+      </div> */}
+      <div id="video-container">
+      <VideoPlayer
+        src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+        id="my-video-player"
+        controls={true}
+        autoplay={false}
+      />
+    </div>
     </Layout>
   );
 }

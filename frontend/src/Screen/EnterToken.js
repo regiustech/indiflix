@@ -24,14 +24,7 @@ function EnterToken() {
     const body = {
       otp: userDetails.otp,
     };
-
-    const response = await axios.post(
-      "http://localhost:5000/api/users/verifytoken",
-      body
-    );
-
-    console.log(response);
-
+    const response = await axios.post(`http://localhost:9000/api/users/verifytoken`,body);
     setTimeout(navigate("/resetpassword"), 3000);
     // navigate("/");
   };

@@ -1,23 +1,14 @@
-//import React from "react";
 import React, {  useState,useEffect } from "react";
 import Titles from "../Titles";
 import { BsCollectionFill } from "react-icons/bs";
 import { Movies } from "../../Data/MovieData";
 import Movie from "../Movie";
-
 import axios from "axios";
-
-
-function PopularMovies() {
-
+function PopularMovies(){
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-   
-   axios.get('http://localhost:5000/api/movies/random/all' )
-   .then((res )=>setMydata(res.data))
-
-
-},[]);
+    axios.get(`http://localhost:9000/api/movies/random/all`).then((res )=>setMydata(res.data))
+  },[]);
 
 
 

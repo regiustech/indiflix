@@ -19,11 +19,8 @@ function SingleMovie() {
 
   const [myData,setMydata]= useState([]);
   useEffect(()=>{
-   
-   axios.get('http://localhost:5000/api/movies/'+id)
+   axios.get(`http://localhost:9000/api/movies/${id}`)
    .then((res )=>setMydata(res.data))
-
-
 },[]);
 
 

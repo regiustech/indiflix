@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import {ReactElement} from "react";
 import AboutUs from "./Screen/AboutUs";
 import HomeScreen from "./Screen/HomeScreen";
 import NotFound from "./Screen/NotFound";
@@ -20,88 +20,30 @@ import ForgotPassword from "./Screen/ForgotPassword";
 import ResetPassword from "./Screen/ResetPassword";
 import AddMovie from "./Screen/Movies/AddMovie";
 import LandingPage from "./Screen/LandingPage";
+import Terms from "./Screen/Terms";
+import Privacy from "./Screen/Privacy";
 
 
 export const routes = [
-    // {
-    //     path: "/",
-    //     element: <HomeScreen />,
-    // },
-    {
-        path: "/",
-        element: <LandingPage />,
-    },
-    {
-        path: "/about-us",
-        element: <AboutUs />,
-    },
-    {
-        path: "/contact-us",
-        element: <ContactUs />,
-    },
-    {
-        path: "/movies",
-        element: <MoviesPage />,
-    },
-    {
-        path: "/movie/:id",
-        element: <SingleMovie />,
-    },
-    {
-        path: "/watch/:id",
-        element: <WatchPage />,
-    },
-    {
-        path: "/register",
-        element: <Register />,
-    },
-    {
-        path: "/verifytoken",
-        element: <EnterToken />,
-    },
-    {
-        path: "/forgotpassword",
-        element: <ForgotPassword />,
-    },
-    {
-        path: "/resetpassword",
-        element: <ResetPassword />,
-    },
-    {
-        path: "/profile",
-        element: <Profile />,
-    },
-    {
-        path: "/password",
-        element: <Password />,
-    },
-    {
-        path: "/favorites",
-        element: <FavoriteMovies />,
-    },
-    {
-        path: "/movieslist",
-        element: <MovieList />,
-    },
-    {
-        path: "/addmovie",
-        element: <AddMovie />,
-    },
-    {
-        path: "/dashboard",
-        element: <Dashboard />,
-    },
-    {
-        path: "/categories",
-        element: <Categories />,
-    },
-    {
-        path: "/users",
-        element: <Users />,
-    },
-    {
-        path: "*",
-        element: <NotFound />,
-    }
-    
+    {path: "/",element: <LandingPage/>},
+    {path: "/about-us",element: <AboutUs/>},
+    {path: "/contact-us",element: <ContactUs/>},
+    {path: "/movies",element: <MoviesPage/>},
+    {path: "/movie/:id",element: <SingleMovie/>},
+    {path: "/watch/:id",element: <WatchPage/>},
+    {path: "/register",element: <Register/>},
+    {path: "/verifytoken",element: <EnterToken/>},
+    {path: "/forgotpassword",element: <ForgotPassword/>},
+    {path: "/resetpassword",element: <ResetPassword/>},
+    {path: "/profile",element: <Profile/>},
+    {path: "/password",element: <Password/>},
+    {path: "/favorites",element: <FavoriteMovies/>},
+    {path: "/movieslist",element: <MovieList/>},
+    {path: "/addmovie",element: <AddMovie/>},
+    {path: "/dashboard",element: <Dashboard/>},
+    {path: "/categories",element: <Categories/>},
+    {path: "/users",element: <Users/>},
+    {path: "/terms",element: <Terms/>},
+    {path: "/privacy",element: <Privacy/>},
+    {path: "*",element: <NotFound/>}
 ];

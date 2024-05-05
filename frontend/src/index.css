@@ -45,3 +45,12 @@ select:focus {
     z-index: 1000;
   }
 }
+
+.swiper-container:hover .swiper-slide {
+  pointer-events: none;
+}
+
+.swiper-container:hover .swiper-wrapper {
+  animation-play-state: paused;
+}
+
