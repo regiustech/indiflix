@@ -9,7 +9,7 @@ import axios from "axios";
 function WatchPage() {
     let {id} = useParams();
     const [myData,setMydata]= useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/api/movies/${id}`).then((res) => setMydata(res.data));
     },[]);
     return (
