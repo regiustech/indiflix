@@ -29,10 +29,9 @@ function WatchPage() {
             <div id="video-container">
                 <VideoPlayer
                     src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-                    id="my-video-player"
+                    className="custVPlayer"
                     controls={true}
                     autoplay={false}
-                    width="100%"
                     height="600"
                 />
             </div>
